@@ -9,3 +9,4 @@ docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v arpakit_portainer_volume:/data \
   portainer/portainer-ce:latest
+echo "web port: 50534"
