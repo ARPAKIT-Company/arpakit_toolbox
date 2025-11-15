@@ -4,7 +4,7 @@ sudo apt-get upgrade
 sudo apt remove docker-desktop
 rm -r $HOME/.docker/desktop
 sudo rm /usr/local/bin/com.docker.cli
-sudo apt purge docker-deskto
+sudo apt purge docker-desktop
 
 sudo apt-get install \
     ca-certificates \
