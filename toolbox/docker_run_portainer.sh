@@ -1,11 +1,11 @@
-docker pull portainer/portainer-ce:2.33.2
-docker stop arpakit_portainer
-docker rm arpakit_portainer
+docker stop portainer
+docker rm portainer
 docker run -d \
-  -p 50533:8000 \
-  -p 50534:9443 \
-  --name arpakit_portainer \
+  -p 8000:8000 \
+  -p 9000:9000 \
+  --name portainer \
   --restart=always \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v arpakit_portainer_volume:/data \
+  -v portainer_volume:/data \
   portainer/portainer-ce:latest
+echo "http: 9000, for agents: 8000"
