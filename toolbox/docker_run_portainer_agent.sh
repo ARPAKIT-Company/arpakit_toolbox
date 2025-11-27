@@ -1,3 +1,7 @@
+docker stop portainer_agent
+docker rm portainer_agent
+dpcker rmi portainer/agent:latest
+docker pull portainer/agent:latest
 docker run -d \
   -p 9001:9001 \
   --name portainer_agent \
