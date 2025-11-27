@@ -31,3 +31,6 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 
 docker run hello-world
+
+sudo apt-mark hold docker-ce
+sudo apt-mark hold docker-ce-cli
