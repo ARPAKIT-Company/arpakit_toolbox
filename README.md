@@ -7,4 +7,5 @@ bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_tool
 bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_toolbox/master/toolbox/install_nginx.sh)
 bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_toolbox/master/toolbox/install_certbot.sh)
 bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_toolbox/master/toolbox/install_postgresql_16.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_toolbox/master/toolbox/install_xray.sh)
 ```
