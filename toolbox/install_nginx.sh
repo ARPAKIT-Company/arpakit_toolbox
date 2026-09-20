@@ -36,5 +36,12 @@ $SUDO systemctl enable nginx
 $SUDO systemctl restart nginx
 
 echo
-echo "nginx установлен: $(nginx -v 2>&1)"
+# hash -r: bash кеширует пути к командам, и свежеустановленный бинарник
+# может не найтись в уже запущенной оболочке
+hash -r
+if command -v nginx >/dev/null 2>&1; then
+    echo "nginx установлен: $(nginx -v 2>&1)"
+else
+    echo "Предупреждение: nginx установлен, но бинарник не найден в PATH" >&2
+fi
 $SUDO systemctl --no-pager --lines=0 status nginx || true

@@ -22,6 +22,10 @@ case "$HTTP_PORT" in
         exit 1
         ;;
 esac
+if [ "$HTTP_PORT" -lt 1 ] || [ "$HTTP_PORT" -gt 65535 ]; then
+    echo "Порт должен быть в диапазоне 1-65535, получено: $HTTP_PORT" >&2
+    exit 1
+fi
 
 if ! command -v docker >/dev/null 2>&1; then
     echo "docker не найден: установите его через install_docker.sh" >&2

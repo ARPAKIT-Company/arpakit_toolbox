@@ -40,7 +40,12 @@ $SUDO snap install --classic certbot
 $SUDO ln -sf /snap/bin/certbot /usr/bin/certbot
 
 echo
-echo "certbot установлен: $(certbot --version 2>&1)"
+hash -r
+if command -v certbot >/dev/null 2>&1; then
+    echo "certbot установлен: $(certbot --version 2>&1)"
+else
+    echo "Предупреждение: certbot установлен, но бинарник не найден в PATH" >&2
+fi
 echo
 echo "Выпуск сертификата для nginx:"
 echo "  sudo certbot --nginx -d example.com -d www.example.com"

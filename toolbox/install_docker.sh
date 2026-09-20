@@ -94,4 +94,9 @@ if [ "$TARGET_USER" != "root" ]; then
 fi
 
 echo
-echo "Docker установлен: $(docker --version)"
+hash -r
+if command -v docker >/dev/null 2>&1; then
+    echo "Docker установлен: $(docker --version)"
+else
+    echo "Предупреждение: бинарник docker не найден в PATH" >&2
+fi
