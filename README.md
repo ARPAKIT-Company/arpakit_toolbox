@@ -33,6 +33,16 @@ bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_tool
 | --- | --- |
 | `docker_run_portainer.sh [порт]` | Переустанавливает контейнер Portainer CE (порт по умолчанию `9000`). Том с данными сохраняется. Переменные: `PORTAINER_IMAGE`, `PORTAINER_VOLUME`, `CONTAINER_NAME` |
 
+## Xray
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/arpakit-company/arpakit_toolbox/master/toolbox/rm_xray_services.sh)
+```
+
+`rm_xray_services.sh` останавливает и отключает `xray` и все `xray@*`, удаляет
+`*.json` из каталога конфигов. Сам xray (бинарник, юниты, geodata) остаётся.
+Настройки: `XRAY_CONFIGS_DIR` (по умолчанию `/usr/local/etc/xray`).
+
 ## Диагностика
 
 ```bash
