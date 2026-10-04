@@ -26,8 +26,13 @@ fi
 declare -A SERVICES=()
 
 # юниты без конфига тоже останавливаем: иначе продолжат крутиться со старым конфигом в памяти
-while read -r unit _; do
-    [ -n "$unit" ] && SERVICES["$unit"]=1
+# имя юнита ищем среди полей строки: у упавших юнитов systemd ставит перед ним ●
+while read -r -a fields; do
+    for field in "${fields[@]}"; do
+        case "$field" in
+            xray@*) SERVICES["$field"]=1; break ;;
+        esac
+    done
 done < <(systemctl list-units --plain --no-legend --all 'xray@*' 2>/dev/null || true)
 
 CONFIGS=()
